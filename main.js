@@ -107,9 +107,11 @@ posts.forEach(element => {
 // Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
 const buttonLike = document.querySelectorAll(".like-button");
-const counterLike = document.querySelector(".js-likes-counter");
+const counterLike = document.querySelectorAll(".js-likes-counter");
 console.log(buttonLike);
 
+// array vuoto degli id a cui ho messo like
+likeArray = [];
 
 buttonLike.forEach((element, index) => {
     
@@ -118,16 +120,22 @@ buttonLike.forEach((element, index) => {
         function (like) {
                 
             posts[index].likes += 1;
-            console.log(posts[index].likes);
+            //console.log(posts[index].likes);
 
             element.style.color = "blue";
             like.preventDefault();
     
+            counterLike[index].innerHTML = posts[index].likes;
+
+            console.log(counterLike[index].innerHTML);
+
+            likeArray.push(posts[index].id);
+            console.log("I numeri ID a cui ho messo like: " + likeArray);
     });
 
 });
 
 
-        
+
  
 
